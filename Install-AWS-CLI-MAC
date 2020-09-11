@@ -1,0 +1,33 @@
+##install CLI
+
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
+
+##verify installation
+which aws
+
+####add AWS Autocomplete
+##install iTerm2
+https://iterm2.com/downloads.html
+
+##install zsh & Oh My Zh
+brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+##make sure it is default shell##
+chsh -s $(which zsh)
+
+##restart zsh
+source ~/.zshrc
+
+##zsh – To run command completion, you need to run bashcompinit by adding the following autoload line at the end of your ~/.zshrc profile script.
+autoload bashcompinit && bashcompinit
+
+##get location of aws_complete with 
+which aws_completer
+
+##setautocomplete for aws, get location of aws_complete with 
+complete -C  /usr/local/bin/aws_completer aws
+
+
+Done!!!
